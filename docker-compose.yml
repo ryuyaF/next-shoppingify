@@ -1,0 +1,23 @@
+# For more information: https://laravel.com/docs/sail
+
+version: "3.3"
+volumes:
+    db-store:
+
+services:
+    pgsql:
+        image: postgres
+        ports:
+            -   target: 5432
+                published: ${FORWARD_DB_PORT:-5432}
+        volumes:
+            -   type: volume
+                source: db-store
+                target: /var/lib/postgresql/data
+                volume:
+                    nocopy: true
+        environment:
+            PGPASSWORD: '${DB_PASSWORD:-secret}'
+            POSTGRES_DB: '${DB_DATABASE}'
+            POSTGRES_USER: '${DB_USERNAME}'
+            POSTGRES_PASSWORD: '${DB_PASSWORD:-secret}'
