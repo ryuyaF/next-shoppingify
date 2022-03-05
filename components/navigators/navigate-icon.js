@@ -26,25 +26,27 @@ const NavigateIcon = (props) => {
   }
 
   return (
-    <div
-      className='relative flex items-center'
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-    >
+    <>
       <style jsx>{styles}</style>
       <div
-        className="tooltip absolute whitespace-nowrap text-white px-4 py-2 rounded flex items-center transition-all duration-150"
-        style={{left: '100%', opacity: 0}}
-        ref={ref}
+        className='relative flex items-center'
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
       >
         <div
-          className='tooltip h-3 w-3 absolute'
-          style={{ left: '-6px', transform: 'rotate(45deg)'}}
-        />
-        {props.text}
+          className="tooltip absolute whitespace-nowrap text-white px-4 py-2 rounded flex items-center transition-all duration-150"
+          style={{left: '100%', opacity: 0}}
+          ref={ref}
+        >
+          <div
+            className='tooltip h-3 w-3 absolute'
+            style={{ left: '-6px', transform: 'rotate(45deg)'}}
+          />
+          {props.text}
+        </div>
+        {props.children}
       </div>
-      {props.children}
-    </div>
+    </>
   )
 }
 
