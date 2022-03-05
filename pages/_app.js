@@ -7,6 +7,7 @@ import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined'
 import Link from 'next/link'
 import NavigateIcon from '../components/navigators/navigate-icon'
 import css from 'styled-jsx/css'
+import { useRouter } from 'next/router'
 
 const styles = css`
   .main-bg-color {
@@ -21,6 +22,22 @@ const styles = css`
 `
 
 function MyApp({ Component, pageProps }) {
+  const router = useRouter()
+
+  const ActiveMenuBar = ({route = '/items'}) => {
+    let className = 'w-3 h-full rounded-lg active-menu-color'
+    if (!(router.route === route)) className += ' opacity-0'
+
+    return <>
+      <style jsx>{`
+        .active-menu-color {
+          background-color: #F9A109;
+        }
+      `}</style>
+      <span className={className}></span>
+    </>
+  }
+
   return (
     <>
       <style jsx>{styles}</style>
@@ -30,25 +47,28 @@ function MyApp({ Component, pageProps }) {
           <div className='flex-1 flex items-start justify-center mt-8'>
             <Image src={'/pictures/logo.svg'} alt='Picture of the logo' width={40} height={40}/>
           </div>
-          <ul className="flex-1 flex flex-col justify-around items-center">
-            <li className='-mb-px mr-1'>
+          <ul className="flex-1 flex flex-col justify-between items-center">
+            <li className='mr-1 w-full h-16 flex'>
+              <ActiveMenuBar route='/items'/>
               <NavigateIcon text='items'>
                 <Link href="/items">
-                  <a><ListOutlinedIcon sx={{ color: '#000' }} /></a>
+                  <a><ListOutlinedIcon sx={{ color: '#000' }} fontSize='large' /></a>
                 </Link>
               </NavigateIcon>
             </li>
-            <li className="mr-1">
+            <li className="mr-1 w-full h-16 flex">
+              <ActiveMenuBar route='/histories'/>
               <NavigateIcon text='history'>
                 <Link href="/histories">
-                  <a><ReplayOutlinedIcon sx={{ color: '#000' }} /></a>
+                  <a><ReplayOutlinedIcon sx={{ color: '#000' }} fontSize='large' /></a>
                 </Link>
               </NavigateIcon>
             </li>
-            <li className="mr-1">
+            <li className="mr-1 w-full h-16 flex">
+              <ActiveMenuBar route='/statics'/>
               <NavigateIcon text='statics'>
                 <Link href="/statics">
-                <a><InsertChartOutlinedIcon sx={{ color: '#000' }} /></a>
+                  <a><InsertChartOutlinedIcon sx={{ color: '#000' }} fontSize='large' /></a>
                 </Link>
               </NavigateIcon>
             </li>

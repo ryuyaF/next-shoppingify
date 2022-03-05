@@ -29,7 +29,7 @@ const NavigateIcon = (props) => {
     <>
       <style jsx>{styles}</style>
       <div
-        className='relative flex items-center'
+        className='relative flex items-center mx-auto'
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
