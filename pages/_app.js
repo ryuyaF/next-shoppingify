@@ -5,9 +5,10 @@ import ReplayOutlinedIcon from '@mui/icons-material/ReplayOutlined'
 import InsertChartOutlinedIcon from '@mui/icons-material/InsertChartOutlined'
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined'
 import Link from 'next/link'
-import NavigateIcon from '../components/navigators/navigate-icon'
+import NavigateIcon from '../components/navigators/navigateIcon'
 import css from 'styled-jsx/css'
 import { useRouter } from 'next/router'
+import ShoppingList from '../components/navigators/shoppingList/shoppingList'
 
 const styles = css`
   .main-bg-color {
@@ -80,8 +81,15 @@ function MyApp({ Component, pageProps }) {
           </div>
         </div>
         {/* 2列目 メインコンテンツ */}
-        <div className='w-full '>
-          <Component {...pageProps} />
+        <div className='w-full flex'>
+          {/* ページコンテンツ */}
+          <div className='w-full min-h-screen'>
+            <Component {...pageProps} />
+          </div>
+          {/* 買い物リスト */}
+          <div className='w-2/5 min-h-screen'>
+            <ShoppingList />
+          </div>
         </div>
       </div>
     </>
