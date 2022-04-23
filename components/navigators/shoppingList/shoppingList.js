@@ -38,7 +38,7 @@ const ShoppingList = (props) => {
                 </div>
                 <div className="w-7/12 flex flex-col p-4">
                   <div className="h-full flex1 text-white">
-                    <p className="font-bold text-base">Didn't find what you need?</p>
+                    <p className="font-bold text-base">Didn&apos;t find what you need?</p>
                   </div>
                   <div className="h-full flex1 flex justify-start items-center">
                     <button className="h-10 w-32 bg-white text-black rounded-lg">Add item</button>
