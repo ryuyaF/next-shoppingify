@@ -42,7 +42,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <style jsx>{styles}</style>
-      <div className='min-w-full min-h-screen rounded-xl flex main-bg-color'>
+      <div className='min-w-full max-h-screen rounded-xl flex main-bg-color'>
         {/* 1列目 サイドメニュー */}
         <div className='w-24 min-h-screen flex flex-col justify-between side-bar-bg-color'>
           <div className='flex-1 flex items-start justify-center mt-8'>
@@ -81,13 +81,13 @@ function MyApp({ Component, pageProps }) {
           </div>
         </div>
         {/* 2列目 メインコンテンツ */}
-        <div className='w-full flex'>
+        <div className='w-full max-h-screen flex'>
           {/* ページコンテンツ */}
-          <div className='w-full min-h-screen'>
+          <div className='w-full max-h-screen overflow-y-auto hidden-scrollbar'>
             <Component {...pageProps} />
           </div>
           {/* 買い物リスト */}
-          <div className='w-2/5 min-h-screen'>
+          <div className='w-2/5 max-h-screen'>
             <ShoppingList />
           </div>
         </div>

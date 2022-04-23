@@ -2,3 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+  .hidden-scrollbar {
+    -ms-overflow-style: nonw; /* IE, Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+  /* Chrome, Safari */
+  .hidden-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
