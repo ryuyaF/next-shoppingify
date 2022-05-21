@@ -39,6 +39,10 @@ function MyApp({ Component, pageProps }) {
     </>
   }
 
+  console.log('process.env.NEXT_PUBLIC_APP_URL: ', process.env.NEXT_PUBLIC_APP_URL)
+  console.log('process.env.VERCEL_URL: ', process.env.VERCEL_URL)
+  console.log('process.env.NEXT_PUBLIC_VERCEL_URL: ', process.env.NEXT_PUBLIC_VERCEL_URL)
+
   return (
     <>
       <style jsx>{styles}</style>
