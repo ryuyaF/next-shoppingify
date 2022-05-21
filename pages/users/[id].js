@@ -6,7 +6,6 @@ import Link from 'next/link'
 import { route } from "next/dist/server/router";
 
 const prisma = new PrismaClient()
-const APP_URL = process.env.NEXT_PUBLIC_APP_URL
 
 export async function getStaticPaths() {
     const users = await prisma.users.findMany();
