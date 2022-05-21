@@ -9,6 +9,7 @@ import NavigateIcon from '../components/navigators/navigateIcon'
 import css from 'styled-jsx/css'
 import { useRouter } from 'next/router'
 import ShoppingList from '../components/navigators/shoppingList/shoppingList'
+import axios from "axios";
 
 const styles = css`
   .main-bg-color {
@@ -42,6 +43,7 @@ function MyApp({ Component, pageProps }) {
   console.log('process.env.NEXT_PUBLIC_APP_URL: ', process.env.NEXT_PUBLIC_APP_URL)
   console.log('process.env.VERCEL_URL: ', process.env.VERCEL_URL)
   console.log('process.env.NEXT_PUBLIC_VERCEL_URL: ', process.env.NEXT_PUBLIC_VERCEL_URL)
+  console.log('axios.defaults.baseURL: ', axios.defaults.baseURL)
 
   return (
     <>
