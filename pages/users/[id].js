@@ -42,7 +42,7 @@ export default function User (props) {
     const handleUpdateUser = async () => {
         const config = {
             method: 'PATCH',
-            url: `${APP_URL}/api/users/${user.id}`,
+            url: `/api/users/${user.id}`,
             data: user,
         }
         await axios(config)
@@ -52,11 +52,11 @@ export default function User (props) {
     const handleDeleteUser = async () => {
         const config = {
             method: 'DELETE',
-            url: `${APP_URL}/api/users/${user.id}`
+            url: `/api/users/${user.id}`
         }
         await axios(config)
         alert(`データの削除に成功しました。`)
-        router.replace(`${APP_URL}/users`)
+        router.replace(`/users`)
     }
 
     return (

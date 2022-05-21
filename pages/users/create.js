@@ -15,7 +15,7 @@ export default function CreateUser () {
     const handleSaveUser = async () => {
         const config = {
             method: 'POST',
-            url: `${process.env.NEXT_PUBLIC_APP_URL}/api/users`,
+            url: '/api/users',
             data: user
         }
         const createdUser = await axios(config).then(res => res.data)
