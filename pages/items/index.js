@@ -35,6 +35,7 @@ export default function Items ({ categories }) {
           {/* アイテム一覧 */}
           <div className='w-full'>
             {categories.map((category, index) => (
+              category.items.length > 0 &&
               <div key={index} className='mb-10'>
                 <h1 className='text-2xl'>{category.name}</h1>
                 <div className='grid grid-cols-4 mt-2'>
@@ -57,7 +58,7 @@ export default function Items ({ categories }) {
   )
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const categories = await prisma.category.findMany({
       include: {
         items: true
