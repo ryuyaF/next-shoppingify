@@ -2,6 +2,7 @@ import { PrismaClient } from "@prisma/client"
 import SearchIcon from '@mui/icons-material/Search';
 import categoryAndItems from '../../stub/categoryAndItems';
 import css from 'styled-jsx/css'
+import axios from "axios";
 
 const prisma = new PrismaClient()
 
@@ -12,6 +13,10 @@ const styles = css`
 `
 
 export default function Items ({ categories }) {
+  const handleItemClick = (category, categoryItem) => (e) => {
+    console.log(category.name, categoryItem.name)
+  }
+
   return (
       <>
         <style jsx>{styles}</style>
@@ -31,12 +36,12 @@ export default function Items ({ categories }) {
           <div className='w-full'>
             {categories.map((category, index) => (
               <div key={index} className='mb-10'>
-                <h1>{category.name}</h1>
-                <div className='grid grid-cols-4'>
+                <h1 className='text-2xl'>{category.name}</h1>
+                <div className='grid grid-cols-4 mt-2'>
                   {category.items.map((categoryItem, itemIndex) => (
                     <div className='break-all bg-white rounded-xl shadow-md m-2 p-4 flex' key={itemIndex}>
                       <span className='mr-auto'>{categoryItem.name}</span>
-                      <button className='mx-2'>
+                      <button className='mx-2' onClick={handleItemClick(category, categoryItem)}>
                         <svg className='transition ease-out delay-75 duration-150 fill-gray-400 hover:scale-125 hover:fill-black active:fill-gray-400' width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                           <path d="M13 2H11V11H2V13H11V22H13V13H22V11H13V2Z"/>
                         </svg>
