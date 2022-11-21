@@ -22,19 +22,17 @@ export default function CreateUser () {
         alert(`データの登録に成功しました。\nid:${createdUser.id}\nname:${createdUser.name}`)
     }
 
-    return (
-        <>
-            <Link href="/users">
-                <a>ユーザー一覧に戻る</a>
-            </Link>
-            <h1>ユーザー登録</h1>
-            <div>
-                <label>名前:</label>
-                <input type="text" name="name" value={user.name} onChange={handleChangeUser} />
-            </div>
-            <div>
-                <button onClick={handleSaveUser}>保存</button>
-            </div>
-        </>
-    )
+    return <>
+        <Link href="/users">
+            ユーザー一覧に戻る
+        </Link>
+        <h1>ユーザー登録</h1>
+        <div>
+            <label>名前:</label>
+            <input type="text" name="name" value={user.name} onChange={handleChangeUser} />
+        </div>
+        <div>
+            <button onClick={handleSaveUser}>保存</button>
+        </div>
+    </>;
 }

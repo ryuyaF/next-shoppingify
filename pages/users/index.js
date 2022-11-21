@@ -16,21 +16,17 @@ export async function getStaticProps() {
 }
 
 export default function Users({users}) {
-    return (
-        <>
-            <h1>ユーザー一覧</h1>
-            <Link href="/users/create">
-                <button>新規作成</button>
-            </Link>
-            <ul>
-                {users.map(user => (
-                    <li key={user.id}>
-                        <Link href="/users/[id]" as={`/users/${user.id}`}>
-                            <a>{user.id}:{user.name}</a>
-                        </Link>
-                    </li>
-                ))}
-            </ul>
-        </>
-    )
+    return <>
+        <h1>ユーザー一覧</h1>
+        <Link href="/users/create">新規作成</Link>
+        <ul>
+            {users.map(user => (
+                <li key={user.id}>
+                    <Link href="/users/[id]" as={`/users/${user.id}`}>
+                        {user.id}:{user.name}
+                    </Link>
+                </li>
+            ))}
+        </ul>
+    </>;
 }

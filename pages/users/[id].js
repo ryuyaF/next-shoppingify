@@ -58,28 +58,26 @@ export default function User (props) {
         router.replace(`/users`)
     }
 
-    return (
-        <>
-            <Link href="/users">
-                <a>ユーザー一覧に戻る</a>
-            </Link>
-            <h1>ユーザー詳細</h1>
-            {user && (
-                <>
-                    <div>
-                        <label>ID:</label>
-                        <input type="text" name="id" value={user.id} onChange={handleChangeUser}  disabled/>
-                    </div>
-                    <div>
-                        <label>名前:</label>
-                        <input type="text" name="name" value={user.name} onChange={handleChangeUser} />
-                    </div>
-                    <div>
-                        <button onClick={handleUpdateUser}>更新</button>
-                        <button onClick={handleDeleteUser}>削除</button>
-                    </div>
-                </>
-            )}
-        </>
-    )
+    return <>
+        <Link href="/users">
+            ユーザー一覧に戻る
+        </Link>
+        <h1>ユーザー詳細</h1>
+        {user && (
+            <>
+                <div>
+                    <label>ID:</label>
+                    <input type="text" name="id" value={user.id} onChange={handleChangeUser}  disabled/>
+                </div>
+                <div>
+                    <label>名前:</label>
+                    <input type="text" name="name" value={user.name} onChange={handleChangeUser} />
+                </div>
+                <div>
+                    <button onClick={handleUpdateUser}>更新</button>
+                    <button onClick={handleDeleteUser}>削除</button>
+                </div>
+            </>
+        )}
+    </>;
 }

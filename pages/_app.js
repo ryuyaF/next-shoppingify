@@ -40,61 +40,59 @@ function MyApp({ Component, pageProps }) {
     </>
   }
 
-  return (
-    <>
-      <style jsx>{styles}</style>
-      <div className='min-w-full max-h-screen rounded-xl flex main-bg-color'>
-        {/* 1列目 サイドメニュー */}
-        <div className='w-24 min-h-screen flex flex-col justify-between side-bar-bg-color'>
-          <div className='flex-1 flex items-start justify-center mt-8'>
-            <Image src={'/pictures/logo.svg'} alt='Picture of the logo' width={40} height={40}/>
-          </div>
-          <ul className="flex-1 flex flex-col justify-between items-center">
-            <li className='mr-1 w-full h-16 flex'>
-              <ActiveMenuBar route='/items'/>
-              <NavigateIcon text='items'>
-                <Link href="/items">
-                  <a><ListOutlinedIcon sx={{ color: '#000' }} fontSize='large' /></a>
-                </Link>
-              </NavigateIcon>
-            </li>
-            <li className="mr-1 w-full h-16 flex">
-              <ActiveMenuBar route='/histories'/>
-              <NavigateIcon text='history'>
-                <Link href="/histories">
-                  <a><ReplayOutlinedIcon sx={{ color: '#000' }} fontSize='large' /></a>
-                </Link>
-              </NavigateIcon>
-            </li>
-            <li className="mr-1 w-full h-16 flex">
-              <ActiveMenuBar route='/statics'/>
-              <NavigateIcon text='statics'>
-                <Link href="/statics">
-                  <a><InsertChartOutlinedIcon sx={{ color: '#000' }} fontSize='large' /></a>
-                </Link>
-              </NavigateIcon>
-            </li>
-          </ul>
-          <div className='flex-1 flex flex-col justify-end'>
-            <div className='w-10 h-10 mx-auto rounded-full mb-8 flex flex-col justify-center items-center cart-bg-color'>
-              <ShoppingCartOutlinedIcon sx={{ color: '#FFF', fontSize: 20 }} />
-            </div>
-          </div>
+  return <>
+    <style jsx>{styles}</style>
+    <div className='min-w-full max-h-screen rounded-xl flex main-bg-color'>
+      {/* 1列目 サイドメニュー */}
+      <div className='w-24 min-h-screen flex flex-col justify-between side-bar-bg-color'>
+        <div className='flex-1 flex items-start justify-center mt-8'>
+          <Image src={'/pictures/logo.svg'} alt='Picture of the logo' width={40} height={40}/>
         </div>
-        {/* 2列目 メインコンテンツ */}
-        <div className='w-full max-h-screen flex'>
-          {/* ページコンテンツ */}
-          <div className='w-full max-h-screen overflow-y-auto hidden-scrollbar'>
-            <Component {...pageProps} />
-          </div>
-          {/* 買い物リスト */}
-          <div className='w-2/5 max-h-screen'>
-            <ShoppingList />
+        <ul className="flex-1 flex flex-col justify-between items-center">
+          <li className='mr-1 w-full h-16 flex'>
+            <ActiveMenuBar route='/items'/>
+            <NavigateIcon text='items'>
+              <Link href="/items" passHref legacyBehavior>
+                <ListOutlinedIcon sx={{ color: '#000' }} fontSize='large' />
+              </Link>
+            </NavigateIcon>
+          </li>
+          <li className="mr-1 w-full h-16 flex">
+            <ActiveMenuBar route='/histories'/>
+            <NavigateIcon text='history'>
+              <Link href="/histories" passHref legacyBehavior>
+                <ReplayOutlinedIcon sx={{ color: '#000' }} fontSize='large' />
+              </Link>
+            </NavigateIcon>
+          </li>
+          <li className="mr-1 w-full h-16 flex">
+            <ActiveMenuBar route='/statics'/>
+            <NavigateIcon text='statics'>
+              <Link href="/statics" passHref legacyBehavior>
+                <InsertChartOutlinedIcon sx={{ color: '#000' }} fontSize='large' />
+              </Link>
+            </NavigateIcon>
+          </li>
+        </ul>
+        <div className='flex-1 flex flex-col justify-end'>
+          <div className='w-10 h-10 mx-auto rounded-full mb-8 flex flex-col justify-center items-center cart-bg-color'>
+            <ShoppingCartOutlinedIcon sx={{ color: '#FFF', fontSize: 20 }} />
           </div>
         </div>
       </div>
-    </>
-  )
+      {/* 2列目 メインコンテンツ */}
+      <div className='w-full max-h-screen flex'>
+        {/* ページコンテンツ */}
+        <div className='w-full max-h-screen overflow-y-auto hidden-scrollbar'>
+          <Component {...pageProps} />
+        </div>
+        {/* 買い物リスト */}
+        <div className='w-2/5 max-h-screen'>
+          <ShoppingList />
+        </div>
+      </div>
+    </div>
+  </>;
 }
 
 export default MyApp
